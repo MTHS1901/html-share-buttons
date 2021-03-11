@@ -1,49 +1,22 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-   @media only screen and (max-width: 992px) {
+   
    .compartilhe {
    position: fixed;
-   right: 0;
-   bottom: 0;
-   width: 102%;
-   margin: -1px;
-   height: 40px;
+   width: 100%;
+   bottom: 5;
    text-align: center;
    z-index: 99999;
-   background: #fff;
-   }
-   .compartilhe-desktop {
-   display: none;}
-   }
-   .compartilhe{animation:animatebottom 0.3s}@keyframes animatebottom{from{bottom:-300px;opacity:0} to{bottom:0;opacity:1}}
-   @media only screen and (min-width: 992px) {
-   .compartilhe {
-   position: fixed;
-   left: 10px;
-   bottom: 30px;
-   width: 320px;
-   padding: 10px;
-   text-align: center;
-   z-index: 99999;
-   background: #fff;
-   border: solid 1px;
-   border-radius: 3px;
-   }
-   .compartilhe-desktop {
-   display: block;}
-   #whatsapp {display: none;}
+   background: white;
    }
    .fa {
-   padding: 14px;
-   font-size: 15px!important;
-   width: 20%;
-   text-align: center;
+   padding: 15px;
+   font-size: 16px!important;
+   width: 15%;
    text-decoration: none;
-   margin: 0px -2px;
-   background: #000;
    }
    .fa:hover {
-   text-decoration: none!important;
+   opacity: 0.8;
    }
    .fa-facebook {
    background: rgb(59, 89, 152);
@@ -66,40 +39,28 @@
    }
 </style>
 <div class="compartilhe">
-   <div class="compartilhe-desktop" >Compartilhe:</div>
-   <a href="#" target="_blank" onclick="window.open('whatsapp://send?text=' + encodeURIComponent(document.URL) + '&quote=' + encodeURIComponent(document.URL)); return false;" id="whatsapp" class="fa fa-whatsapp"></a>
-   <a href="#" target="_blank" onclick="window.open('https://fb.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&quote=' + encodeURIComponent(document.URL)); return false;" class="fa fa-facebook"></a>
-   <button onclick="CopyLink()" class="fa" style="border:none"><i class="fa-copy"></i></button>
-   <a href="#" target="_blank" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.URL) + '&quote=' + encodeURIComponent(document.URL)); return false;" class="fa fa-twitter"></a>
-   <a href="#" target="_blank" onclick="window.open('https://telegram.me/share/url?url=' + encodeURIComponent(document.URL) + '&quote=' + encodeURIComponent(document.URL)); return false;" class="fa fa-telegram"></a>
-</div>
+<!-- MARGIN-TOP: -9999... MAKE THE TEXTAREA OUT OF SCREEN -->
+<textarea rows="1" cols="30" style="width: 0px; height: 0px;margin-top: -99999999px;;" id="url"></textarea>
+
+<a href="#" target="_blank" onclick="window.open('https://api.whatsapp.com/send?phone=&amp;text=' + encodeURIComponent(document.URL) + '&amp;quote=' + encodeURIComponent(document.URL)); return false;" id="whatsapp" class="fa fa-whatsapp"></a>
+
+<a href="javascript:Copy();" type="button&quot;" style="background:#000" class="fa" data-wpel-link="internal"><i class="fa-copy"></i></a>
+
+<a href="#" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&amp;quote=' + encodeURIComponent(document.URL)); return false;" class="fa fa-facebook"></a>
+
+<a href="#" target="_blank" onclick="window.open('https://telegram.me/share/url?url=' + encodeURIComponent(document.URL) + '&amp;quote=' + encodeURIComponent(document.URL)); return false;" class="fa fa-telegram"></a>
+
+
+<a href="#" target="_blank" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.URL) + '&amp;quote=' + encodeURIComponent(document.URL)); return false;" class="fa fa-twitter"></a>
+
 <script>
-   function copyTextToClipboard(text) {
-     var textArea = document.createElement("textarea");
-     textArea.style.position = 'fixed';
-     textArea.style.top = 0;
-     textArea.style.left = 0;
-     textArea.style.width = '2em';
-     textArea.style.height = '2em';
-     textArea.style.padding = 0;
-     textArea.style.border = 'none';
-     textArea.style.outline = 'none';
-     textArea.style.boxShadow = 'none';
-     textArea.value = text;
-     document.body.appendChild(textArea);
-     textArea.select();
-     try {
-       var successful = document.execCommand('copy');
-    alert("Link copiado!");
-     } catch (err) {
-       alert("Erro ao copiar link!");
-     }
-   
-     document.body.removeChild(textArea);
-   }
-   
-   function CopyLink() {
-     copyTextToClipboard(location.href);
-   }
+function Copy() {
+  var Url = document.getElementById("url");
+  Url.innerHTML = window.location.href;
+  console.log(Url.innerHTML)
+  Url.select();
+    alert("Link copiado com sucesso!");
+    document.execCommand("copy");
+}
 </script>
 </div>
