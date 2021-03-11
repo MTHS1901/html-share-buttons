@@ -2,7 +2,7 @@
 Try it: https://www.w3schools.com/code/tryit.asp?filename=GIZZ5RAHM1FZ
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MTHS1901/html-share-buttons/master/screenshot.png"width="350">
+  <img src="https://raw.githubusercontent.com/MTHS1901/html-share-buttons/master/screenshot.png">
 </p>
 
 You can add other buttons from other social networks, just use the "share function" of the site, facebook for example is "https://facebook.com/sharer/sharer.php?u=" remember to use the icon also, example "fa fa-youtube", that way the icon appears, for each icon it is necessary to create a style with background and button color.
